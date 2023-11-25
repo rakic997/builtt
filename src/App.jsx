@@ -1,22 +1,23 @@
-import React from 'react'
-import { Route, Routes } from 'react-router-dom'
+import { Routes, Route } from 'react-router-dom';
 
 import Login from './pages/Login';
-import Products from './pages/Login';
-import Cart from './pages/Login';
-import NotFound from './pages/404';
+import Products from './pages/Products';
+import Cart from './pages/Cart';
+
+import PrivateRoutes from './components/PrivateRoutes';
 
 function App() {
   return (
     <div className='content'>
       <Routes>
-        <Route path="/product/:id" element={<Login />} />
-        <Route path="/" element={<Products />} />
-        <Route path="/products/:id" element={<Cart />} />
-        <Route path="*" element={<NotFound />} />
+        <Route path="/" element={<Login />} />
+        <Route element={<PrivateRoutes />}>
+          <Route path="/products" element={<Products />} />
+          <Route path="/cart" element={<Cart />} />
+        </Route>
       </Routes>
     </div>
-  )
+  );
 }
 
-export default App
+export default App;
