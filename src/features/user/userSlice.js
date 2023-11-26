@@ -17,14 +17,10 @@ const userSlice = createSlice({
       state.isLoggedIn = true;
       state.user = action.payload;
     },
-    logout: (state) => {
-      state.isLoggedIn = false;
-      state.user = null;
-    },
   },
 });
 
-export const { login, logout } = userSlice.actions;
+export const { login } = userSlice.actions;
 export const selectUser = (state) => state.user;
 
 export const selectDefaultUser = () => defaultUser; 

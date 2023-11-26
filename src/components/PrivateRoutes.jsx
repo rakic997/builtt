@@ -2,6 +2,8 @@ import { Navigate, Outlet } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import { selectUser } from '../features/user/userSlice';
 
+import Nav from './Nav';
+
 const ProtectedRoute = () => {
   const user = useSelector(selectUser);
 
@@ -9,8 +11,13 @@ const ProtectedRoute = () => {
     return <Navigate to="/login" replace />;
   }
 
-  return <Outlet /> 
-  
+  return (
+    <>
+      <Nav />
+      <Outlet />
+    </>
+  )
+
 };
 
 export default ProtectedRoute;
