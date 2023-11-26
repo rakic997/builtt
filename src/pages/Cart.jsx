@@ -44,11 +44,11 @@ const Cart = () => {
           <h6>Tvoja narudžbina</h6>
           <div className='totals-row'>
             <p>Ukupno:</p>
-            <p>{totalSum} rsd</p>
+            <p>{totalSum} <span className='currency'>rsd</span></p>
           </div>
           <div className='totals-row'>
             <p>Ušteda:</p>
-            <p>- {totalDiscount} rsd</p>
+            <p>- {totalDiscount} <span className='currency'>rsd</span></p>
           </div>
           <div className='totals-row'>
             <p>Isporuka Daily Express*</p>
@@ -59,7 +59,7 @@ const Cart = () => {
               Ukupno za uplatu:
               <span>Cena je sa uključenim PDV-om</span>
             </p>
-            <p>{totalAfterDiscount} rsd</p>
+            <p>{totalAfterDiscount} <span className='currency'>rsd</span></p>
           </div>
         </div>
 

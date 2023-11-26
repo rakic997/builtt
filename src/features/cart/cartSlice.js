@@ -6,15 +6,6 @@ const cartSlice = createSlice({
     items: [],
   },
   reducers: {
-    // addToCart: (state, action) => {
-    //   const existingItem = state.items.find((item) => item.id === action.payload.id);
-
-    //   if (existingItem) {
-    //     existingItem.quantity = action.payload.quantity;
-    //   } else {
-    //     state.items.push({ ...action.payload });
-    //   }
-    // },
     addToCart: (state, action) => {
       const existingItemIndex = state.items.findIndex((item) => item.id === action.payload.id);
     

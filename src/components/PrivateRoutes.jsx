@@ -8,7 +8,7 @@ const ProtectedRoute = () => {
   const user = useSelector(selectUser);
 
   if (!user || !user.isLoggedIn) {
-    return <Navigate to="/login" replace />;
+    return <Navigate to="/" replace />;
   }
 
   return (

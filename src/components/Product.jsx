@@ -11,7 +11,7 @@ import { selectCart } from '../features/cart/cartSlice';
 
 const Product = ({ product, inCart }) => {
 
-  const { id, image, title, price } = product;
+  const { id, image, title, price, newPrice } = product;
   const dispatch = useDispatch();
   const cart = useSelector(selectCart);
   const [localQuantity, setLocalQuantity] = useState(1);
@@ -23,10 +23,6 @@ const Product = ({ product, inCart }) => {
     }
   }, [cart.items, id]);
 
-  // const handleAddToCart = () => {
-  //   dispatch(addToCart({ ...product, quantity: localQuantity }));
-  //   setLocalQuantity(1);
-  // };
 
   const handleAddToCart = () => {
     const existingCartItem = cart.items.find((item) => item.id === id);
@@ -80,6 +76,7 @@ const Product = ({ product, inCart }) => {
       </div>
       <h6 className='title'>{title}</h6>
       <p className='price'>{price} <span className='currency'>rsd</span></p>
+      {inCart && newPrice ? <p className='price new-price'>{newPrice} <span className='currency'>rsd</span></p> : null}
     </article>
   )
 }
